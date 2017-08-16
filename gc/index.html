@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>test</title>
+</head>
+<body>
+<script type="text/javascript">
+
+    var str = 'a';
+    var charCode = str.charCodeAt();
+
+    for (var i = 0; i < 10; i++) {
+        var m = charCode+i;
+        for (var j = 0; j < 10; j++) {
+            var n = charCode+j;
+            for (var k = 0; k < 100; k++) {
+                var l = charCode+k;
+                var varName = String.fromCharCode(m)+String.fromCharCode(n)+String.fromCharCode(l);
+                eval('var ' + varName + ' = Math.random();'); // eval仅作测试使用，真实代码严禁使用eval
+                console.log(varName + " = " +window[varName]);
+            }
+        }
+    }
+
+    // 由于上面代码创建了1000个变量，悲催的 IE6 一直忙着CG，根本运行不到这里。
+    location.href = 'http://www.baidu.com';
+
+</script>
+</body>
+</html>

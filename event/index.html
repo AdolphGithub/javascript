@@ -3,8 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="event.js"></script>
 </head>
 <body>
-    <script src="script.js"></script>
+    <div style="height: 200px;width: 200px;background-color: red" id="div1">
+
+    </div>
+    <script>
+        var element = document.getElementById('div1');
+        var handler = function(event){
+            event = EventUtil.getEvent(event);
+            var target = EventUtil.getTarget(event);
+            console.dir(event);
+            console.dir(target);
+        }
+        EventUtil.addHandler(element,'click',handler);
+    </script>
 </body>
 </html>
