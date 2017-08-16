@@ -38,6 +38,7 @@ var unique = function(arr){
     var func = function(arr){
         for(var key in arr){
             if(Array.isArray(arr[key])){
+                // 这里需要改动.
                 arr = arr.concat(func(arr[key]));
                 arr.splice(key,1);
             }

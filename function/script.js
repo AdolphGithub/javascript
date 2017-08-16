@@ -50,24 +50,40 @@ var fioacciSequece = function(count){
 console.log(fioacciSequece(12));  // 0、1、1、2、3、5、8、13、21、34、55、89
 // 挑战三，三维数组或 n 维数组去重，使用 arguments 重写
 var arr = [2,3,4,[2,3,[2,3,4,2],5],3,5,[2,3,[2,3,4,2],2],4,3,6,2];
+// var unique = function(arr){
+//     // 待实现方法体
+//     var result = [];
+//     var func = function(arr){
+//         for(var key in arr){
+//             if(Array.isArray(arr[key])){
+//                 arr = arr.concat(arguments.callee(arr[key]));
+//                 arr.splice(key,1);
+//             }
+//         }
+//         return arr;
+//     };
+//     arr = func(arr);
+//     for(var key in arr){
+//         if(result.indexOf(arr[key]) < 0){
+//             result.push(arr[key]);
+//         }
+//     }
+//     return result;
+// }
+// 重构方法.
 var unique = function(arr){
-    // 待实现方法体
     var result = [];
-    var func = function(arr){
-        for(var key in arr){
+    (function(arr) {
+        for (var key in arr) {
             if(Array.isArray(arr[key])){
-                arr = arr.concat(arguments.callee(arr[key]));
-                arr.splice(key,1);
+                arguments.callee(arr[key]);
+            }else{
+                if(result.indexOf(arr[key]) < 0){
+                    result.push(arr[key]);
+                }
             }
         }
-        return arr;
-    };
-    arr = func(arr);
-    for(var key in arr){
-        if(result.indexOf(arr[key]) < 0){
-            result.push(arr[key]);
-        }
-    }
+    })(arr);
     return result;
-}
+};
 console.log(unique(arr)); // [2,3,4,5,6]
