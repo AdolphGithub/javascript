@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JS</title>
+    <meta name="keywords" content="拼图游戏"/>
+    <meta name="description" content="拼图游戏"/>
+    <style type="text/css">
+        #vvg p {
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        #vvg ul {
+            overflow: hidden;
+            text-align: center;
+        }
+
+        #thumb li {
+            list-style: none;
+            float: left;
+            display: inline;
+            margin-left: 5px;
+        }
+
+        #gameCanvas {
+            position: relative;
+            padding: 0;
+            margin: 0 auto;
+        }
+
+        #gameCanvas li {
+            position: absolute;
+            list-style: none;
+            cursor: move;
+        }
+
+        #vvgBox {
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #mask {
+            position: absolute;
+            z-index: 999;
+            background: #fff;
+            left: 0;
+            top: 0;
+        }
+
+        #button {
+            width: 133px;
+            height: 133px;
+            background-image: url('images/play.png');
+            position: absolute;
+            z-index: 1000;
+            margin-left: -66px;
+            left: 50%;
+            margin-top: -66px;
+            top: 50%;
+        }
+
+        #button:hover {
+            background-position: -133px 0;
+        }
+
+        #textTip {
+            font-size: 25px;
+            font-weight: bold;
+            color: #000;
+            text-align: center;
+            position: relative;
+            top: -75%;
+            z-index: 1000;
+        }
+
+        #step {
+            margin-left: 5px;
+            margin-right: 5px;
+            color: red;
+            font-size: 20px;
+        }
+
+        #imgDiy {
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="vvg">
+    <p id="desTip">通过四个关卡后可以自定义图片&nbsp;&nbsp;&nbsp;&nbsp;现在是第<span id="step">1</span>关</p>
+    <p id="imgDiy">填入图片地址：<input type="text" id="imgUrl"><input id="startDiy" type="button" value="开始"></p>
+    <div id="vvgBox">
+        <ul id="gameCanvas"></ul>
+    </div>
+</div>
+    <script src="picture.js"></script>
+</body>
+</html>
