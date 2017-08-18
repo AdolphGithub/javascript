@@ -37,6 +37,6 @@ https://github.com/stone0090/javascript-lessons
 ├── prototype	// 原型对象
 ├── README.md
 ├── scope&closure	// 闭包
-└── script
+├── script
 └── slide	// 轮播图
 ```
