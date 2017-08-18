@@ -18,6 +18,7 @@ https://github.com/stone0090/javascript-lessons
 * [正则](https://github.com/AdolphGithub/javascript/tree/master/patten)
 * [原型对象](https://github.com/AdolphGithub/javascript/tree/master/prototype)
 * [闭包&作用域](https://github.com/AdolphGithub/javascript/tree/master/scope&closure)
+* [轮播图](https://github.com/AdolphGithub/javascript/tree/master/slide)
 #### 目录结构
 ```
 ├── array	// 数组
@@ -37,4 +38,5 @@ https://github.com/stone0090/javascript-lessons
 ├── README.md
 ├── scope&closure	// 闭包
 └── script
+└── slide	// 轮播图
 ```
