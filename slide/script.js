@@ -4,7 +4,9 @@
             element = 'slide';
         }
         if(!options){
-            options = {};
+            options = {
+                'autoplay':true
+            };
         }
         this._init(element,options);
     }
@@ -14,6 +16,7 @@
         if(ele.length){
             var divs = ele[0].getElementsByTagName('div');
             this.options = options;
+            this.ele = ele;
             if(divs.length && divs.length > 0){
                 var clone_div = this._clone(divs),
                     img = divs[0].getElementsByTagName('img')[0];
@@ -54,14 +57,45 @@
             ele.index = 0;
         }
         var time = this.options.time || 1000;
+        // 当鼠标离开.
+        ele[0].onmouseleave = function(){
+            ele.timer = setInterval(function(){
+                this._move(ele);
+            }.bind(this),time);
+        }.bind(this);
+        // 当鼠标结束.
+        ele[0].onmouseover = function(){
+            clearInterval(ele.timer);
+        };
+
         ele.timer = setInterval(function(){
             this._move(ele);
         }.bind(this),time);
     };
+    // 播放.
+    Slider.prototype.paly = function(){
+        var ele = this.ele;
+        // 清除默认的定时器.
+        if(ele.timer){
+            clearInterval(ele.timer);
+        }
+        // 清除默认的索引.
+        ele.index = 0;
+        var time = this.options.time || 1000;
+        // 当鼠标离开.
+        ele[0].onmouseleave = function(){
+            ele.timer = setInterval(function(){
+                this._move(ele);
+            }.bind(this),time);
+        }.bind(this);
+        // 当鼠标结束.
+        ele[0].onmouseover = function(){
+            clearInterval(ele.timer);
+        };
 
-    // 查找.
-    Slider.prototype._find = function(){
-
+        ele.timer = setInterval(function(){
+            this._move(ele);
+        }.bind(this),time);
     };
 
     // clone最后一个.
