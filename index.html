@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    function spinWords(){
+        //TODO Have fun :)
+        var arr = arguments[0].split(' ');
+        if(arr.length && arr.length > 0){
+            for(var i=0,len=arr.length;i<len;i++){
+                var temp = arr[i];
+                temp = temp.split('');
+                if(temp.length >= 6){
+                    temp = temp.reverse();
+                }
+                arr[i] = temp.join('');
+            }
+        }
+        return arr.join(' ');
+    }
+</script>
+</body>
+</html>
